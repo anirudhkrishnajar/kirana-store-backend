@@ -24,13 +24,13 @@ public class RequestFilter extends OncePerRequestFilter {
     private CustomUserDetailsService customUserDetailsService;
 
     /**
-     * Filters incoming HTTP requests to  set the authentication context.
+     * Filter incoming HTTP requests to  set the authentication context
      *
-     * @param request The HTTP request.
-     * @param response The HTTP response.
-     * @param filterChain The filter chain to pass the request through after filtering.
-     * @throws ServletException If an error occurs during the filtering process.
-     * @throws IOException If an I/O error occurs during the filtering process.
+     * @param request The HTTP request
+     * @param response The HTTP response
+     * @param filterChain The filter chain to pass the request through after filtering
+     * @throws ServletException If an error occurs during the filtering process
+     * @throws IOException If an I/O error occurs during the filtering process
      */
     @Override
     protected void doFilterInternal(HttpServletRequest request,

@@ -8,27 +8,26 @@ import org.springframework.stereotype.Repository;
 import java.util.ArrayList;
 import java.util.List;
 
-
 @Repository
 public class UserDaoImpl implements UserDao {
 
     private final UserRepository userRepository;
 
     /**
+     * Constructor for UserDaoImpl
      *
-     * @param userRepository
+     * @param userRepository  repository to interact with  User collection
      */
     public UserDaoImpl(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
 
     /**
+     * Fetches a User by ID and maps it to a UserDto object
      *
-     * @param userId
-     * @return
+     * @param userId  ID of the user to fetch
+     * @return  UserDto object representing user
      */
-
-
     @Override
     public UserDto getUser(String userId) {
         User user = userRepository.findUserByUserId(userId);
@@ -36,10 +35,10 @@ public class UserDaoImpl implements UserDao {
     }
 
     /**
+     * Retrieve  list of all users from the database
      *
-     * @return
+     * @return  list of UserDto objects representing all users
      */
-
     @Override
     public List<UserDto> getAllUsers() {
         List<User> users = userRepository.findAll();
@@ -51,11 +50,11 @@ public class UserDaoImpl implements UserDao {
     }
 
     /**
+     * Create a new user in the database
      *
-     * @param userDto
-     * @return
+     * @param userDto Dto for user
+     * @return  created UserDto
      */
-
     @Override
     public UserDto createUser(UserDto userDto) {
         User user = userRepository.insert(UserMapper.toEntity(userDto));
@@ -63,9 +62,10 @@ public class UserDaoImpl implements UserDao {
     }
 
     /**
+     * Update an existing user
      *
-     * @param userDto
-     * @return
+     * @param userDto User dto
+     * @return  updated UserDto object after saving  changes
      */
     @Override
     public UserDto updateUser(UserDto userDto) {
@@ -74,20 +74,20 @@ public class UserDaoImpl implements UserDao {
     }
 
     /**
+     * Delete a user from  database by user ID
      *
-     * @param userId
+     * @param userId  ID of  user to delete
      */
-
     @Override
     public void deleteUserByUserId(String userId) {
         userRepository.deleteUserByUserId(userId);
     }
 
     /**
+     * Fetch a User by their username
      *
-     *
-     * @param userId
-     * @return
+     * @param userId  username
+     * @return  UserDto  the user
      */
     @Override
     public UserDto getUserByUsername(String userId) {

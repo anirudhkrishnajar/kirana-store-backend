@@ -71,7 +71,7 @@ public class SecurityConfig {
         http
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/kirana/users/**", "/kirana/auth/**", "/actuator/prometheus").permitAll()
+                        .requestMatchers("/kirana/users/**", "/kirana/auth/**", "/actuator/prometheus","/metrics").permitAll()
                         .anyRequest().authenticated()
                 )
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
